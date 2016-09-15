@@ -58,7 +58,11 @@ namespace CommandWebsite
 
         public void Execute(IRocketPlayer caller, string[] command)
         {
-            ((UnturnedPlayer)caller).Player.askBrowserRequest(((UnturnedPlayer)caller).CSteamID, "see the vip opportunities", "http://heekhook.wixsite.com/jamesunturned/vip");
+           UnturnedPlayer Ucaller = (UnturnedPlayer)caller;
+
+            Ucaller.Player.channel.send("askBrowserRequest", Ucaller.CSteamID,
+                ESteamPacket.UPDATE_RELIABLE_BUFFER,
+                "see the vip opportunities", "http://heekhook.wixsite.com/jamesunturned/vip");
         }
     }
 }
