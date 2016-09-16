@@ -1,0 +1,67 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using Rocket.API;
+using Rocket.Unturned.Player;
+using SDG.Unturned;
+using Steamworks;
+using Rocket.Unturned.Chat;
+using Rocket.Unturned.Player;
+
+namespace SpyAll
+{
+    class b : IRocketCommand
+    {
+        public List<string> Aliases
+        {
+            get
+            {
+                return new List<string>();
+            }
+        }
+
+        public AllowedCaller AllowedCaller
+        {
+            get
+            {
+                return Rocket.API.AllowedCaller.Player;
+            }
+        }
+
+        public string Help
+        {
+            get
+            {
+                return "shows how to spawn a vehicle";
+            }
+        }
+
+        public string Name
+        {
+            get { return "b"; }
+        }
+
+        public List<string> Permissions
+        {
+            get
+            {
+                return new List<string> { "Bspawn" };
+            }
+        }
+
+        public string Syntax
+        {
+            get
+            {
+                return "[b or vehicle]";
+            }
+        }
+
+        public void Execute(IRocketPlayer caller, string[] command)
+        {
+            UnturnedChat.Say(caller, "do /b vehicle name or ID");
+        }
+    }
+}
